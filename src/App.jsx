@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import myPhoto from './assets/photo.jpg';
+// याद गर्नुहोला: यहाँ अब .png प्रयोग गरिएको छ
+import myPhoto from './assets/photo.png'; 
 
 function App() {
   // Dark Mode State 
@@ -131,11 +132,11 @@ function App() {
 
       <main className="max-w-6xl mx-auto px-6">
         
-        {/* Hero Section */}
-        <section id="home" className="pt-24 pb-16 md:pt-32 md:pb-20 flex flex-col items-center justify-center relative overflow-hidden">
+        {/* Updated Hero Section with Cutout Image Style */}
+        <section id="home" className="pt-24 pb-0 md:pt-32 flex flex-col items-center justify-center relative overflow-hidden">
           
           {/* Animated Text */}
-          <div className="z-10 flex flex-col items-center text-center animate-title scroll-mt-24">
+          <div className="relative z-0 flex flex-col items-center text-center animate-title scroll-mt-24">
             <h1 className="text-5xl md:text-6xl font-medium tracking-tight text-slate-900 dark:text-white mb-2">
               Hi I'm Suman
             </h1>
@@ -145,7 +146,7 @@ function App() {
           </div>
 
           {/* Action Buttons */}
-          <div className="z-10 flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-6 animate-buttons w-full sm:w-auto">
+          <div className="relative z-20 flex flex-col sm:flex-row flex-wrap justify-center gap-4 mt-6 animate-buttons w-full sm:w-auto">
             {/* View CV Button */}
             <a href="/Suman_Rai_CV.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 px-8 py-4 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-xl font-bold transition-all hover:-translate-y-1">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
@@ -164,20 +165,21 @@ function App() {
             </a>
           </div>
 
-          {/* Animated Profile Photo */}
-          <div className="mt-12 z-0 relative flex justify-center animate-image w-full max-w-md">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur-[80px] opacity-20 dark:opacity-40"></div>
-            <div className="relative z-10 w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
-              <img 
-                src={myPhoto} 
-                alt="My Profile" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
-              />
-            </div>
+          {/* Animated Profile Photo (Cutout Style, no border, overlaps text slightly) */}
+          <div className="mt-8 md:-mt-8 relative z-10 flex justify-center animate-image w-full max-w-lg pointer-events-none">
+            {/* Subtle glow behind the image */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 md:w-96 md:h-96 bg-gradient-to-t from-indigo-500 to-purple-500 rounded-full blur-[100px] opacity-20 dark:opacity-30"></div>
+            
+            {/* The transparent PNG image */}
+            <img 
+              src={myPhoto} 
+              alt="My Profile" 
+              className="w-72 md:w-[400px] h-auto object-contain drop-shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 pointer-events-auto" 
+            />
           </div>
         </section>
 
-        {/* Premium About Section - Divided into 3 Sections */}
+        {/* Premium About Section */}
         <section id="about" className="py-24 scroll-mt-12 relative">
           <div className="flex flex-col items-center mb-16 relative z-10">
             <h2 className="text-4xl font-extrabold mb-4">About Me</h2>
@@ -185,7 +187,6 @@ function App() {
           </div>
           
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-            
             {/* 1. Education Card */}
             <div className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl rounded-3xl p-8 border border-white/50 dark:border-slate-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden">
               <div className="absolute top-0 right-0 -mr-10 -mt-10 w-40 h-40 bg-blue-500 rounded-full blur-[60px] opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
