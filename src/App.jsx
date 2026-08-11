@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// याद गर्नुहोला: यहाँ अब .png प्रयोग गरिएको छ
 import myPhoto from './assets/photo.png'; 
 
 function App() {
@@ -35,14 +34,14 @@ function App() {
       const data = await response.json();
 
       if (data.success) {
-        alert('🎉 Message sent successfully! Your data is saved in MongoDB.');
+        alert('Message sent successfully! Your data is saved in MongoDB.');
         setFormData({ name: '', email: '', message: '' }); 
       } else {
-        alert('❌ Failed to send message.');
+        alert('Failed to send message.');
       }
     } catch (error) {
       console.error(error);
-      alert('⚠️ Error connecting to the server. Is the backend running?');
+      alert('Error connecting to the server. Is the backend running?');
     }
   };
 
@@ -132,7 +131,7 @@ function App() {
 
       <main className="max-w-6xl mx-auto px-6">
         
-        {/* Updated Hero Section with Cutout Image Style */}
+        {/* Hero Section with Cutout Image Style */}
         <section id="home" className="pt-24 pb-0 md:pt-32 flex flex-col items-center justify-center relative overflow-hidden">
           
           {/* Animated Text */}
@@ -179,7 +178,7 @@ function App() {
           </div>
         </section>
 
-        {/* Premium About Section */}
+        {/* About Section */}
         <section id="about" className="py-24 scroll-mt-12 relative">
           <div className="flex flex-col items-center mb-16 relative z-10">
             <h2 className="text-4xl font-extrabold mb-4">About Me</h2>
@@ -232,7 +231,7 @@ function App() {
           </div>
         </section>
 
-        {/* Premium Skills Section with Logos */}
+        {/* Skills Section */}
         <section id="skills" className="py-24 relative scroll-mt-12">
           <div className="absolute top-1/2 left-0 -ml-32 -mt-32 w-80 h-80 bg-indigo-500 rounded-full blur-[120px] opacity-10 dark:opacity-20 pointer-events-none"></div>
           <div className="absolute top-1/2 right-0 -mr-32 -mt-32 w-80 h-80 bg-purple-500 rounded-full blur-[120px] opacity-10 dark:opacity-20 pointer-events-none"></div>
@@ -322,7 +321,7 @@ function App() {
           </div>
         </section>
 
-        {/* Premium Contact Section with Info + Form */}
+        {/* Contact Section */}
         <section id="contact" className="py-24 border-t border-slate-200 dark:border-slate-800 scroll-mt-12 relative">
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 rounded-full blur-[150px] opacity-10 dark:opacity-20 pointer-events-none"></div>
 
